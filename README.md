@@ -36,6 +36,8 @@ Oxfmt has no `extends`:
 oxfmt -c /Users/themiya/Documents/Dev/Github/linters/typescript/oxfmtrc.json --check .
 ```
 
+Oxlint type-aware rules need `oxlint-tsgolint` installed next to `oxlint`.
+
 A nearest project config still wins if it does not `extend` these files.
 
 Personal fallback (no project file): `python/README.md`, `typescript/README.md`.

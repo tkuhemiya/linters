@@ -250,43 +250,7 @@ A project:
 
 `extends` only inherits `rules`, `plugins`, and `overrides`. Set `options.typeAware` in the project's root file. `-c oxlintrc.json` uses this file as the root, so `typeAware` applies there.
 
-### Draft extras block
-
-```jsonc
-{
-  "plugins": ["eslint", "typescript", "unicorn", "oxc", "import", "promise"],
-  "options": { "typeAware": true },
-  "categories": { "correctness": "error" },
-  "rules": {
-    "eslint/preserve-caught-error": "error",
-    "eslint/array-callback-return": "error",
-    "eslint/no-throw-literal": "error",
-    "eslint/no-promise-executor-return": "error",
-    "unicorn/prefer-includes": "error",
-    "unicorn/prefer-array-flat-map": "error",
-    "unicorn/prefer-at": "error",
-    "unicorn/prefer-string-replace-all": "error",
-    "unicorn/prefer-node-protocol": "error",
-    "unicorn/prefer-spread": "error",
-    "typescript/no-misused-promises": "error",
-    "typescript/only-throw-error": "error",
-    "typescript/return-await": "error",
-    "import/no-cycle": "error",
-    "import/no-self-import": "error",
-    "import/no-duplicates": "error",
-    "import/no-absolute-path": "error",
-    "promise/no-callback-in-promise": "error",
-    "promise/no-new-statics": "error",
-    "promise/valid-params": "error"
-  }
-}
-```
-
-```jsonc
-{
-  "sortImports": true
-}
-```
+The extras live in `oxlintrc.json` and `oxfmtrc.json`.
 
 ## Explicit non-goals for v1
 

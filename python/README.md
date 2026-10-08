@@ -39,11 +39,9 @@ ty check
 
 `ruff format` writes. `ruff format --check` only reports.
 
-If the directory (or a parent) has its own config, that config is what runs.
+If the directory (or a parent) has its own config and does not `extend` this file, that config is what runs.
 
-Ruff looks for `ruff.toml`, `.ruff.toml`, or a `[tool.ruff]` table. The nearest one replaces this file entirely. A project that only sets a line length does not keep rules added here later. To keep them, that project can set `extend = "~/.config/ruff/ruff.toml"`.
-
-ty looks for `ty.toml`, or a `[tool.ty]` table. A `pyproject.toml` with no `[tool.ty]` table is skipped. Project settings merge over this file, and the project value wins.
+Ruff looks for `ruff.toml`, `.ruff.toml`, or a `[tool.ruff]` table. ty looks for `ty.toml`, or a `[tool.ty]` table. A `pyproject.toml` with no `[tool.ty]` table is skipped.
 
 Ruff 0.16 defaults stay in force (bugbear, pyupgrade, isort `I001`, and many others; not the old `E4`/`E7`/`E9`/`F` set). Format is Black-compatible at 88 columns, 2026 style guide. `target-version` is `py310` unless the project's `requires-python` says otherwise. `UP` follows that version, so it will not suggest syntax from a newer Python than the project declares.
 
