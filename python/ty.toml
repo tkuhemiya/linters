@@ -1,8 +1,7 @@
-# Personal fallback for directories with no ty config of their own.
-# ty's defaults stay on. The rules below were ignored and are now enabled.
-#
-# A project ty.toml or [tool.ty] table is merged on top of this file.
-# Where both set the same value, the project wins.
+# Shareable extra. ty has no extend; a project copies this rule, or this
+# file is the user config at ~/.config/ty/ty.toml.
+# ty's defaults stay on. A project ty.toml or [tool.ty] table merges on
+# top; the project value wins.
 
 [rules]
 # A generic in an annotation has to name its parameters: re.Match[str], not re.Match.
