@@ -230,23 +230,25 @@ Native: `jest`, `vitest`. JS-ok and conformance-tested: Cypress, Playwright, tes
 
 ## How this should look in files
 
-Proposed `typescript/` layout (not in this change):
+Wired as shareable files (not auto-discovered, so a project has to add them):
 
 ```
 typescript/
-  README.md          # same shape as python/README.md
-  .oxlintrc.json     # defaults + extras above
-  .oxfmtrc.json      # oxfmt defaults + sortImports
+  README.md
+  oxlintrc.json      # extras; extend this from .oxlintrc.json
+  oxfmtrc.json       # sortImports; oxfmt has no extends, pass -c
 ```
 
-Invoke, once linked or wrapped:
+A project:
 
-```sh
-oxlint -c ~/.../linters/typescript/.oxlintrc.json --type-aware .
-oxfmt  -c ~/.../linters/typescript/.oxfmtrc.json --check .
+```json
+{
+  "extends": ["/path/to/linters/typescript/oxlintrc.json"],
+  "options": { "typeAware": true }
+}
 ```
 
-If the directory already has `.oxlintrc.json` / `oxlint.config.ts`, that file is what runs (same story as a project `ruff.toml`).
+`extends` only inherits `rules`, `plugins`, and `overrides`. Set `options.typeAware` in the project's root file. `-c oxlintrc.json` uses this file as the root, so `typeAware` applies there.
 
 ### Draft extras block
 

@@ -1,8 +1,9 @@
-# Personal fallback for directories with no Ruff config of their own.
-# Assumes Ruff 0.16+ (413 default rules). The list below is the extra set.
+# Shareable extras. Assumes Ruff 0.16+ (413 default rules).
 #
-# A project ruff.toml, .ruff.toml, or [tool.ruff] table replaces this file.
-# It does not merge with it.
+# A project keeps this list by setting:
+#   extend = "/path/to/linters/python/ruff.toml"
+# Without extend, a project ruff.toml / .ruff.toml / [tool.ruff] table
+# replaces this file entirely.
 
 [lint]
 extend-select = [

@@ -2,7 +2,25 @@
 
 Ruff lints and formats. ty type-checks. Both are already installed with uv.
 
-These two files are the fallback for a directory that has no setup of its own. Ruff keeps its 0.16 defaults (413 rules) and adds the extras in `ruff.toml`. ty keeps its defaults and enables `missing-type-argument`.
+These two files are extras on top of each tool's defaults. Ruff 0.16 already turns on 413 rules; `ruff.toml` adds a short list. ty keeps its defaults and enables `missing-type-argument`.
+
+## Add to a project
+
+Ruff does not merge a nearest `ruff.toml` with this file. The project has to `extend` it:
+
+```toml
+[tool.ruff]
+extend = "/Users/themiya/Documents/Dev/Github/linters/python/ruff.toml"
+```
+
+ty has no `extend`. Put the rule in the project file, or use the user-config link below (project settings still win):
+
+```toml
+[tool.ty.rules]
+missing-type-argument = "error"
+```
+
+## Personal fallback (no project config)
 
 Link them once:
 
