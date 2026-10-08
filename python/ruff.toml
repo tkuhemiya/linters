@@ -1,24 +1,18 @@
 # Personal fallback for directories with no Ruff config of their own.
-# E4, E7, E9, and F stay on. The list below is the extra set.
+# Assumes Ruff 0.16+ (413 default rules). The list below is the extra set.
 #
 # A project ruff.toml, .ruff.toml, or [tool.ruff] table replaces this file.
 # It does not merge with it.
 
 [lint]
 extend-select = [
-    # Defaults are evaluated once and then shared by every call.
-    "B006",
-    "B008",
-    # raise inside except should name its cause.
+    # raise inside except should name its cause. Still off in 0.16 defaults.
     "B904",
-    # except Exception catches the wrong failures too.
-    "BLE001",
-    # map(lambda ...) should be a comprehension.
-    "C417",
-    # Current syntax. Honors target-version, which is py310 unless the project says otherwise.
-    "UP",
     # Unused parameters. A leading underscore is still allowed.
     "ARG",
-    # Group and sort imports.
+    # Current syntax beyond the default UP subset. Honors target-version,
+    # which is py310 unless the project says otherwise.
+    "UP",
+    # Group and sort imports beyond I001, which 0.16 already turns on.
     "I",
 ]

@@ -26,7 +26,7 @@ Oxlint has no `~/.config` fallback the way Ruff does. A nearest `.oxlintrc.json`
 
 ## What we should add
 
-Keep Oxlint correctness defaults. Do not turn on whole categories (`suspicious`, `pedantic`, `style`). Pick extras the way `python/ruff.toml` picked `B006`, `B904`, `BLE001`, `C417`, `UP`, `ARG`, `I`.
+Keep Oxlint correctness defaults. Do not turn on whole categories (`suspicious`, `pedantic`, `style`). Pick extras the way `python/ruff.toml` picks `B904`, `ARG`, `UP`, `I` (Ruff 0.16 already turned on `B006`, `B008`, `BLE001`, `C417`). Python mapping: `python/oxlint-compat.md`.
 
 ### Always-on extras (native)
 
